@@ -11,6 +11,21 @@ const Cryptocurrencies = ({ simplified }) => {
     const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
     const [cryptos, setCryptos] = useState();
     const [searchTerm, setSearchTerm] = useState('');
+
+    useEffect(() => {
+        setCryptos(cryptosList?.data?.coins);
+    
+        const filteredData = cryptosList?.data?.coins.filter((item) => item.name.toLowerCase().includes(searchTerm));
+    
+        setCryptos(filteredData);
+      }, [cryptosList, searchTerm]);
+    
+      if (isFetching) return <Loader />;
+
+      return (
+        <>
+        </>
+  );
 };
 
 export default Cryptocurrencies;
