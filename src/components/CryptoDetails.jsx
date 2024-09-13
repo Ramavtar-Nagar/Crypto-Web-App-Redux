@@ -52,6 +52,7 @@ const CryptoDetails = () => {
     <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
       {time.map((date) => <Option key={date}>{date}</Option>)}
     </Select>
+<<<<<<< Updated upstream
         <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
       <Col className="stats-container">
         <Col className="coin-value-statistics">
@@ -100,6 +101,9 @@ const CryptoDetails = () => {
           ))}
         </Col>
       </Col>
+=======
+
+>>>>>>> Stashed changes
     
     </Col>
   )
