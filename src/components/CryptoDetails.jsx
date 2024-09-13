@@ -13,14 +13,13 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 
 const CryptoDetails = () => {
+  const { coinId } = useParams();
+  const [timeperiod, setTimeperiod] = useState('7d');
+  const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
+  const cryptoDetails = data?.data?.coin;
 
-    const { coinId } = useParams();
-    const [timeperiod, setTimeperiod] = useState('7d');
-    const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
-    const cryptoDetails = data?.data?.coin;
-
-    if (isFetching) return <Loader />;
+  if (isFetching) return <Loader />;
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -40,20 +39,18 @@ const CryptoDetails = () => {
     { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
 
-
   return (
     <Col className="coin-detail-container">
-    <Col className="coin-heading-container">
-      <Title level={2} className="coin-name">
-        {data?.data?.coin.name} ({data?.data?.coin.symbol}) Price
-      </Title>
-      <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
-    </Col>
-    <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
-      {time.map((date) => <Option key={date}>{date}</Option>)}
-    </Select>
-<<<<<<< Updated upstream
-        <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
+      <Col className="coin-heading-container">
+        <Title level={2} className="coin-name">
+          {data?.data?.coin.name} ({data?.data?.coin.symbol}) Price
+        </Title>
+        <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
+      </Col>
+      <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
+        {time.map((date) => <Option key={date}>{date}</Option>)}
+      </Select>
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
       <Col className="stats-container">
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">
@@ -70,7 +67,7 @@ const CryptoDetails = () => {
             </Col>
           ))}
         </Col>
-          <Col className="other-stats-info">
+        <Col className="other-stats-info">
           <Col className="coin-value-statistics-heading">
             <Title level={3} className="coin-details-heading">Other Stats Info</Title>
             <p>An overview showing the statistics of {cryptoDetails.name}, such as the base and quote currency, the rank, and trading volume.</p>
@@ -101,12 +98,8 @@ const CryptoDetails = () => {
           ))}
         </Col>
       </Col>
-=======
-
->>>>>>> Stashed changes
-    
     </Col>
-  )
-}
+  );
+};
 
-export default CryptoDetails
+export default CryptoDetails;
