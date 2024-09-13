@@ -23,4 +23,11 @@ const Exchanges = () => {
         <Col span={6}>Markets</Col>
         <Col span={6}>Change</Col>
       </Row>
-      <Row></Row>
+      <Row>
+
+      </Row>
+    </>
+  );
+};
+
+export default Exchanges;
