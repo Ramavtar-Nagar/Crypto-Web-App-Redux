@@ -57,7 +57,6 @@ const News = ({ simplified }) => {
         </Col>
       ))}
     </Row>
-    </Row>
   );
 };
 
