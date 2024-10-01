@@ -85,3 +85,19 @@ You can learn more about the technologies used in this project from the followin
 The project is deployed using Vercel. To deploy the project yourself, follow the Vercel deployment guide for React applications.
 
 
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ramavtarnagar13@gmail.com)
+[ramavtarnagar13@gmail.com](mailto:ramavtarnagar13@gmail.com)
+
+## 🔗 Socials
+
+![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
+[LinkedIn](https://www.linkedin.com/in/ramavtar-nagar-a942a4216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+
+![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)
+[X](https://x.com/Ramavta60509861?t=7nTCY6zozQfNJs5uYGFyTQ&s=09)
+
